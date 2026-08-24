@@ -27,4 +27,4 @@ point.4 = Rumassala Hill Sacred Site — 8 Mins
 #   1. Go to Google Maps and find your location
 #   2. Click Share → Embed a map → Copy the link inside src="..."
 #   3. Paste that entire link below (replace everything after map.url =)
-map.url = https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15871.214068597394!2d80.24072234551187!3d6.02166548769395!2m3!1f0!2f0!3f0!3m2!1i1020!2i768!4f13.1!3m3!1m2!1s0x3ae173bb6932f917%3A0x4a1cecbd31d3606a!2sUnawatuna!5e0!3m2!1sen!2slk!4v1710000000000!5m2!1sen!2slk
+map.url = https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15871!2d80.256915!3d6.02585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae17300235e8339%3A0x5c3991dd07f38e30!2sCinnamon%20Ridge%20-%20Unawatuna!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk
