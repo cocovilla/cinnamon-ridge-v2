@@ -286,12 +286,33 @@
             if (e.target.tagName !== 'IMG') return;
             var img = e.target;
             if (img.dataset.crRetried) return; // prevent infinite loop
-            var alt = swapCase(img.src);
+
+            // Use getAttribute to avoid fully resolved domain when searching Alpine state
+            var path = img.getAttribute('src') || img.src;
+            var alt = swapCase(path);
+
             if (alt) {
                 img.dataset.crRetried = '1';
                 img.src = alt;
+                console.log('[CR] Fallback image case fixed:', alt);
+
+                // If managed by Alpine.js, mutate the internal state so x-bind doesn't revert it
+                var xData = img.closest('[x-data]');
+                if (xData && xData._x_dataStack && xData._x_dataStack[0]) {
+                    var data = xData._x_dataStack[0];
+                    if (Array.isArray(data.rooms)) {
+                        data.rooms.forEach(function (room) {
+                            var idx = room.images.indexOf(path);
+                            if (idx !== -1) room.images[idx] = alt;
+                        });
+                    }
+                    if (Array.isArray(data.slides)) {
+                        var slideIdx = data.slides.indexOf(path);
+                        if (slideIdx !== -1) data.slides[slideIdx] = alt;
+                    }
+                }
             }
-        }, true); // capture phase: fires before Alpine/other handlers
+        }, true);
     }());
 
     // ── HERO IMAGE ─────────────────────────────────────────────────────────
@@ -397,7 +418,6 @@
             var extras = document.getElementById('about-gallery-extras');
             if (extras && photos.length > 3) {
                 var extra = photos.slice(3, 6);
-                extras.style.display = 'grid';
                 extras.style.gridTemplateColumns = 'repeat(' + extra.length + ', 1fr)';
                 extras.style.gap = '12px';
                 extras.innerHTML = extra.map(function (url, i) {

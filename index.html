@@ -269,23 +269,31 @@
         }
 
         /* ── About gallery: reliable responsive visibility ────────────────── */
-        /* Mobile (< 1024px): show carousel, hide desktop grid               */
+        /* Mobile (< 1024px): show carousel, hide desktop grids              */
         #about-gallery-mobile {
             display: flex;
         }
 
         #about-gallery-desktop {
-            display: none;
+            display: none !important;
         }
 
-        /* Desktop (≥ 1024px): hide carousel, show desktop grid              */
+        #about-gallery-extras {
+            display: none !important;
+        }
+
+        /* Desktop (≥ 1024px): hide carousel, show desktop grids             */
         @media (min-width: 1024px) {
             #about-gallery-mobile {
-                display: none;
+                display: none !important;
             }
 
             #about-gallery-desktop {
-                display: grid;
+                display: grid !important;
+            }
+
+            #about-gallery-extras {
+                display: grid !important;
             }
         }
     </style>
@@ -432,7 +440,7 @@
             <div id="about-gallery-desktop" style="display:none;gap:12px;align-items:start">
             </div>
             <!-- Extra photos row 4+ (desktop only) -->
-            <div id="about-gallery-extras" style="display:none;margin-top:12px">
+            <div id="about-gallery-extras" style="gap:12px;margin-top:12px">
             </div>
         </div>
 
