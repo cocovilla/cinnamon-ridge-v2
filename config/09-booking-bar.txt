@@ -1,0 +1,17 @@
+﻿
+╔══════════════════════════════════════════════════════════════╗
+║   09  –  FLOATING BOOKING BAR                               ║
+║          (The dark bar fixed at the bottom of every page)   ║
+╚══════════════════════════════════════════════════════════════╝
+  Change the text after the  =  sign.
+  Save the file, then refresh your browser.
+══════════════════════════════════════════════════════════════
+
+# Small gold label (visible on desktop only)
+tagline     = Cinnamon Ridge Boutique Escape
+
+# Italic subtitle below the tagline (visible on desktop only)
+description = Secure your calendar across premium booking channels
+
+# The clickable button text
+button      = Check Availability Now

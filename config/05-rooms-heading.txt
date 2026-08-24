@@ -1,0 +1,20 @@
+﻿
+╔══════════════════════════════════════════════════════════════╗
+║   05  –  ROOMS SECTION HEADING                              ║
+║          (The heading shown above the room list)            ║
+╚══════════════════════════════════════════════════════════════╝
+  Change the text after the  =  sign.
+  Save the file, then refresh your browser.
+
+  (To edit individual room details, open the files inside
+   the  config\rooms\  folder.)
+══════════════════════════════════════════════════════════════
+
+# Small gold label above the heading
+label       = Boutique Quarters
+
+# The main heading
+heading     = Choose Your Room
+
+# The small line below the heading
+description = Select a room to explore details, photos and availability

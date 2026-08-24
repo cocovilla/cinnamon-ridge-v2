@@ -1,0 +1,39 @@
+﻿================================================
+  ROOM 4 - Configuration File
+================================================
+  Edit the details for Room 4 below.
+  Save this file, then refresh your browser.
+================================================
+
+-- ROOM PHOTOS --
+  Place your Room 4 photos in this folder:
+    images\rooms\room-4\
+
+  Name them in order: 1.JPG  2.JPG  3.JPG ...
+
+  Then update the number below to match how many
+  photos you placed in that folder.
+
+image.count = 1
+
+-- ROOM DETAILS --
+
+name        = Terrace Room
+subtitle    = Garden Terrace
+label       = Room 04
+guests      = 2
+bed.type    = 1 Double Bed
+view        = Garden & Jungle
+
+-- ROOM DESCRIPTION --
+
+description = A secluded retreat with a large private stone terrace opening directly to the jungle canopy. Pairs raw organic materials with soft luxury details - ideal for couples seeking privacy and nature immersion.
+
+-- AMENITIES --
+
+amenity.1  = 🛏 Double Bed
+amenity.2  = ❄ Air Conditioning
+amenity.3  = 📶 Free Wi-Fi
+amenity.4  = 🚿 En-suite Bath
+amenity.5  = 🌿 Private Terrace
+amenity.6  = 🍃 Jungle View

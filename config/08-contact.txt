@@ -1,0 +1,32 @@
+﻿
+╔══════════════════════════════════════════════════════════════╗
+║   08  –  CONTACT DETAILS                                    ║
+║          (Phone, WhatsApp, Email, Facebook)                 ║
+╚══════════════════════════════════════════════════════════════╝
+  Change the text after the  =  sign.
+  Save the file, then refresh your browser.
+══════════════════════════════════════════════════════════════
+
+# ── Contact section heading ────────────────────────────────
+label       = Bespoke Inquiries
+heading     = Connect With Us
+description = Whether arranging curated excursions, private culinary requests, or general itinerary details, our reservations team is permanently available.
+
+# ── WhatsApp ───────────────────────────────────────────────
+# Numbers only — no spaces, no dashes, no + sign
+# Example: for +94 77 123 4567 → write 94771234567
+whatsapp.number = 94771234567
+whatsapp.label  = Instant Messaging
+
+# ── Phone call ─────────────────────────────────────────────
+# phone.number  = the actual dialling number (include + and country code)
+# phone.display = how it appears on screen (any format you prefer)
+phone.number  = +94771234567
+phone.display = +94 77 123 4567
+
+# ── Email ──────────────────────────────────────────────────
+email.address = concierge@cinnamonridgeunawatuna.com
+
+# ── Facebook ───────────────────────────────────────────────
+# Paste your full Facebook page URL below
+facebook.url = https://facebook.com/cinnamonridgeunawatuna

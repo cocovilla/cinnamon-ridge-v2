@@ -1,0 +1,39 @@
+﻿================================================
+  ROOM 3 - Configuration File
+================================================
+  Edit the details for Room 3 below.
+  Save this file, then refresh your browser.
+================================================
+
+-- ROOM PHOTOS --
+  Place your Room 3 photos in this folder:
+    images\rooms\room-3\
+
+  Name them in order: 1.JPG  2.JPG  3.JPG ...
+
+  Then update the number below to match how many
+  photos you placed in that folder.
+
+image.count = 3
+
+-- ROOM DETAILS --
+
+name        = Triple Panorama Room
+subtitle    = Ocean Panorama
+label       = Room 03
+guests      = 3
+bed.type    = 1 Double + 1 Single
+view        = Ocean Panorama
+
+-- ROOM DESCRIPTION --
+
+description = Our most spacious offering, ideal for small families or close friends seeking a shared jungle retreat. Three beds, sweeping bay views and full resort access in a single premium sanctuary.
+
+-- AMENITIES --
+
+amenity.1  = 🛏 Double + Single Beds
+amenity.2  = ❄ Air Conditioning
+amenity.3  = 📶 Free Wi-Fi
+amenity.4  = 🚿 En-suite Bath
+amenity.5  = 🌊 Ocean View
+amenity.6  = 👪 Family Friendly

@@ -1,0 +1,50 @@
+
+PUT YOUR WEBSITE IMAGES IN THIS FOLDER
+=======================================
+
+FOLDER STRUCTURE
+────────────────
+
+images/
+│
+├── hero.JPG          ← The large opening background photo
+│                       (full-screen image behind the title)
+│
+├── pool.JPG          ← Photo of your pool
+│                       (shown in the Pool section)
+│
+├── about.JPG         ← Optional: a lifestyle photo for the About section
+│
+└── rooms/
+    ├── room-01/      ← Photos for Room 1 (Pool View)
+    │   ├── 1.JPG
+    │   ├── 2.JPG
+    │   └── 3.JPG     (add as many as you like)
+    │
+    ├── room-02/      ← Photos for Room 2 (Panorama Suite)
+    │   ├── 1.JPG
+    │   └── 2.JPG
+    │
+    ├── room-03/      ← Photos for Room 3 (Triple Panorama)
+    │   └── 1.JPG
+    │
+    └── room-04/      ← Photos for Room 4 (Terrace Room)
+        └── 1.JPG
+
+
+RULES
+─────
+• Photo files MUST be named with numbers:  1.JPG  2.JPG  3.JPG  ...
+• Supported formats: JPG  JPEG  PNG  WebP
+• After adding photos, update the  image.count  number in site.config
+  to match how many photos you uploaded.
+
+EXAMPLE
+───────
+You upload 5 photos to  images/rooms/room-01/
+You name them:  1.JPG   2.JPG   3.JPG   4.JPG   5.JPG
+
+Then in  site.config  you set:
+    room.1.image.count = 5
+
+Refresh your browser — the photos appear automatically!

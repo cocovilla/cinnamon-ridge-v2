@@ -1,0 +1,27 @@
+﻿
+╔══════════════════════════════════════════════════════════════╗
+║   10  –  FOOTER                                             ║
+║          (The dark strip at the very bottom of the page)    ║
+╚══════════════════════════════════════════════════════════════╝
+  Change the text after the  =  sign.
+  Save the file, then refresh your browser.
+══════════════════════════════════════════════════════════════
+
+# Property name (shown large in the footer)
+property.name        = CINNAMON RIDGE
+
+# Short description below the property name
+property.description = An architectural luxury escape perched over the canopy profiles of historic Unawatuna, Sri Lanka.
+
+# Heading for the contact column
+contact.heading      = Contact Enquiries
+
+# Heading for the badges column
+badge.heading        = Verified Badges
+
+# The two badge labels
+badge.1              = Superhost
+badge.2              = Booking 9.6
+
+# Copyright line at the very bottom
+copyright            = © 2025 Cinnamon Ridge. All rights reserved.

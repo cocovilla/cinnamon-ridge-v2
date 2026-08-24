@@ -1,0 +1,40 @@
+﻿================================================
+  ROOM 2 - Configuration File
+================================================
+  Edit the details for Room 2 below.
+  Save this file, then refresh your browser.
+================================================
+
+-- ROOM PHOTOS --
+  Place your Room 2 photos in this folder:
+    images\rooms\room-2\
+
+  Name them in order: 1.JPG  2.JPG  3.JPG ...
+
+  Then update the number below to match how many
+  photos you placed in that folder.
+
+image.count = 2
+
+-- ROOM DETAILS --
+
+name        = Panorama Suite
+subtitle    = Double Ocean View
+label       = Room 02
+guests      = 2
+bed.type    = 1 Double Bed
+view        = Ocean Panorama
+
+-- ROOM DESCRIPTION --
+
+description = High ceilings, deep panoramic frames and a private stone terrace - the Panorama Suite offers the finest sunrise views directly above the Unawatuna Bay. A pure sensory experience of jungle and ocean.
+
+-- AMENITIES --
+
+amenity.1  = 🛏 Double Bed
+amenity.2  = ❄ Air Conditioning
+amenity.3  = 📶 Free Wi-Fi
+amenity.4  = 🚿 En-suite Bath
+amenity.5  = 🌊 Ocean View
+amenity.6  = 🌅 Private Terrace
+amenity.7  = ☕ Nespresso Machine

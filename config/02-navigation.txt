@@ -1,0 +1,15 @@
+﻿
+╔══════════════════════════════════════════════════════════════╗
+║   02  –  NAVIGATION MENU                                    ║
+╚══════════════════════════════════════════════════════════════╝
+  These are the link labels shown in the top menu bar.
+  Change the text after the  =  sign.
+  Save the file, then refresh your browser.
+══════════════════════════════════════════════════════════════
+
+about    = The Property
+rooms    = Sanctuaries
+pool     = Oasis
+location = Location
+contact  = Connect
+book     = Reserve Stay

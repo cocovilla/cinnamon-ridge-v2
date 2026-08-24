@@ -1,0 +1,41 @@
+﻿================================================
+  ROOM 1 - Configuration File
+================================================
+  Edit the details for Room 1 below.
+  Save this file, then refresh your browser.
+================================================
+
+-- ROOM PHOTOS --
+  Place your Room 1 photos in this folder:
+    images\rooms\room-1\
+
+  Name them in order: 1.JPG  2.JPG  3.JPG ...
+
+  Then update the number below to match how many
+  photos you placed in that folder.
+
+image.count = 5
+
+-- ROOM DETAILS --
+
+name        = Deluxe Double Room
+subtitle    = Pool View
+label       = Room 01
+guests      = 2
+bed.type    = 1 Double Bed
+view        = Pool View
+
+-- ROOM DESCRIPTION --
+
+description = Wake up to the shimmering reflections of our infinity pool dancing across your ceiling. This double retreat combines earthy micro-cement surfaces with warm teak accents, opening to a private balcony above the canopy.
+
+-- AMENITIES --
+  Format: emoji then a space then a label
+  You can have up to 12. Delete a line to remove it.
+
+amenity.1  = 🛏 Double Bed
+amenity.2  = ❄ Air Conditioning
+amenity.3  = 📶 Free Wi-Fi
+amenity.4  = 🚿 En-suite Bath
+amenity.5  = 🏊 Pool View
+amenity.6  = 🍽 Mini Fridge

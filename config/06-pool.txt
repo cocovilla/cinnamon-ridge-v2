@@ -1,0 +1,16 @@
+﻿
+╔══════════════════════════════════════════════════════════════╗
+║   06  –  POOL SECTION                                       ║
+╚══════════════════════════════════════════════════════════════╝
+  Change the text after the  =  sign.
+  Save the file, then refresh your browser.
+══════════════════════════════════════════════════════════════
+
+# Small gold label above the heading
+label       = Ground-Level Serenity
+
+# The pool section heading
+heading     = The Tropical Infinity Pool
+
+# The description paragraph
+description = Seamlessly integrated into the natural bedrock profiles, our crystalline swimming sanctuary transitions into rich gardens, matching the wild visual spirit of Sri Lankan nature.

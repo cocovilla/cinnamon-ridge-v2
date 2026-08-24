@@ -1,0 +1,20 @@
+﻿
+╔══════════════════════════════════════════════════════════════╗
+║   03  –  HERO SECTION                                       ║
+║          (The big full-screen opening image & text)         ║
+╚══════════════════════════════════════════════════════════════╝
+  Change the text after the  =  sign.
+  Save the file, then refresh your browser.
+══════════════════════════════════════════════════════════════
+
+# Small gold label above the main heading
+badge       = Boutique Luxury Sanctuary
+
+# The large main heading
+heading     = Perched High Above the Canopy
+
+# The paragraph below the heading
+description = Discover a secluded structural hideaway nestled atop an exclusive stone knoll in Unawatuna. Designed effortlessly for couples, remote creators, and private family escapes.
+
+# The button label
+button      = Explore Estate

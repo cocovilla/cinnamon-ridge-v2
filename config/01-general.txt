@@ -1,0 +1,16 @@
+﻿
+╔══════════════════════════════════════════════════════════════╗
+║   01  –  GENERAL SETTINGS                                   ║
+╚══════════════════════════════════════════════════════════════╝
+  Change the text after the  =  sign.
+  Save the file, then refresh your browser.
+══════════════════════════════════════════════════════════════
+
+# The name that appears in the browser tab and in the top-left logo
+name        = Cinnamon Ridge
+
+# A short tagline (shown in search results and meta tags)
+tagline     = Boutique Retreat · Unawatuna, Sri Lanka
+
+# A longer description for search engines (1–2 sentences)
+description = Perched on a private rock hill, experience the ultimate elevated luxury at Cinnamon Ridge in Unawatuna. Curated boutique hospitality, infinity pool, and pristine jungle isolation.
