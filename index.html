@@ -609,33 +609,29 @@
                  Back zone spans the full left portion so it's easy to tap.
                  Min height 56px — well above the 44px touch-target minimum.
             ─────────────────────────────────────────────────────────────── -->
-            <div class="sticky top-[57px] z-30 bg-[#FAF8F3]/97 backdrop-blur-md border-b border-[#2F3131]/8 flex items-stretch"
-                style="min-height: 56px;">
+            <div class="sticky top-[57px] z-30 bg-white border-b-2 border-[#CBA35C] flex items-stretch shadow-sm"
+                style="min-height: 58px;">
 
                 <!-- ← BACK ZONE: generous touch target (left ~45% of bar) -->
-                <button @click="backToList()" class="flex items-center gap-2 pl-3 pr-5 flex-shrink-0
+                <button @click="backToList()" class="flex items-center gap-3 pl-4 pr-5 flex-shrink-0
                            cursor-pointer touch-manipulation select-none
-                           transition-colors duration-100
-                           active:bg-[#2F3131]/6
-                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A8834A]/40"
-                    aria-label="Back to room list">
-                    <!-- Arrow icon inside a visible pill -->
+                           border-r border-[#CBA35C]/30
+                           active:bg-[#CBA35C]/10
+                           transition-colors duration-100" aria-label="Back to room list">
+                    <!-- Gold filled circle -->
                     <span
-                        class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-[#2F3131]/10 shadow-sm flex-shrink-0 transition-transform duration-150 group-active:scale-95">
-                        <svg class="w-[18px] h-[18px] text-[#332519]" fill="none" stroke="currentColor"
-                            stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                        class="flex items-center justify-center w-9 h-9 rounded-full bg-[#CBA35C] shadow-md flex-shrink-0 active:scale-95 transition-transform">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </span>
-                    <!-- Label — tapping text also activates the button -->
-                    <span
-                        class="font-luxury text-[11px] tracking-widest text-[#332519] uppercase font-semibold whitespace-nowrap"
-                        data-cfg="rooms.back">All
-                        Rooms</span>
+                    <!-- Bold label -->
+                    <span class="font-sans text-[13px] font-bold text-[#2F3131] whitespace-nowrap tracking-wide"
+                        data-cfg="rooms.back">&larr; All Rooms</span>
                 </button>
 
-                <!-- Divider -->
-                <div class="w-px bg-[#2F3131]/8 self-stretch flex-shrink-0 my-3"></div>
+
 
                 <!-- Room identity (right side, non-interactive) -->
                 <div class="flex-1 flex flex-col justify-center px-4 min-w-0">
