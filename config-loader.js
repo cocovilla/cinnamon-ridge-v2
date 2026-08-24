@@ -137,12 +137,12 @@
                 }
             }
 
-            // Images  →  images/rooms/room-01/1.JPG, 2.JPG, ...
+            // Images  →  images/rooms/room-01/1.jpg (or .JPG — both work)
             var count = parseInt(cfg[p + 'image.count']) || 0;
             var folder = 'images/rooms/room-' + i;
             var images = [];
             for (var j = 1; j <= count; j++) {
-                images.push(folder + '/' + j + '.JPG');
+                images.push(folder + '/' + j + '.jpg');
             }
 
             rooms.push({
@@ -213,6 +213,13 @@
             if (cfg[key]) els[i].src = cfg[key];
         }
 
+        // img src  (data-cfg-src="key")  — used for about section photos etc.
+        els = document.querySelectorAll('[data-cfg-src]');
+        for (var i = 0; i < els.length; i++) {
+            var key = els[i].getAttribute('data-cfg-src');
+            if (cfg[key]) els[i].src = cfg[key];
+        }
+
         // WhatsApp link  (built from contact.whatsapp.number)
         if (cfg['contact.whatsapp.number']) {
             var wa = document.querySelector('[data-cfg-whatsapp]');
@@ -256,7 +263,182 @@
         }
     }
 
+    // ── GLOBAL IMAGE CASE-FALLBACK ───────────────────────────────────────
+    // Whenever ANY <img> on the page fails to load, this handler tries the
+    // alternate extension case (.jpg ↔ .JPG, .jpeg ↔ .JPEG).
+    // This means the customer can name files 1.jpg OR 1.JPG — both work.
+
+    (function attachImgFallback() {
+        function swapCase(src) {
+            if (src.slice(-4).toLowerCase() === '.jpg') {
+                return src.slice(-3) === 'jpg'
+                    ? src.slice(0, -3) + 'JPG'
+                    : src.slice(0, -3) + 'jpg';
+            }
+            if (src.slice(-5).toLowerCase() === '.jpeg') {
+                return src.slice(-4) === 'jpeg'
+                    ? src.slice(0, -4) + 'JPEG'
+                    : src.slice(0, -4) + 'jpeg';
+            }
+            return null;
+        }
+        document.addEventListener('error', function (e) {
+            if (e.target.tagName !== 'IMG') return;
+            var img = e.target;
+            if (img.dataset.crRetried) return; // prevent infinite loop
+            var alt = swapCase(img.src);
+            if (alt) {
+                img.dataset.crRetried = '1';
+                img.src = alt;
+            }
+        }, true); // capture phase: fires before Alpine/other handlers
+    }());
+
+    // ── HERO IMAGE ─────────────────────────────────────────────────────────
+    // Sets the hero background-image from hero.image in 03-hero.txt.
+    // Customer puts 1.JPG in images/hero/ and sets: image = images/hero/1.JPG
+
+    function buildHeroImage(cfg) {
+        var url = cfg['hero.image'];
+        if (!url) return;
+        var el = document.getElementById('hero-bg');
+        if (!el) return;
+        // Try url as-is; on error try alternate extension case.
+        function setHeroBg(src) {
+            el.style.backgroundImage = "url('" + src + "')";
+        }
+        function swapExt(src) {
+            if (src.slice(-4).toLowerCase() === '.jpg')
+                return src.slice(-3) === 'jpg' ? src.slice(0, -3) + 'JPG' : src.slice(0, -3) + 'jpg';
+            if (src.slice(-5).toLowerCase() === '.jpeg')
+                return src.slice(-4) === 'jpeg' ? src.slice(0, -4) + 'JPEG' : src.slice(0, -4) + 'jpeg';
+            return null;
+        }
+        var probe = new Image();
+        probe.onload = function () { setHeroBg(url); };
+        probe.onerror = function () {
+            var alt = swapExt(url);
+            setHeroBg(alt || url); // use alt if available, else original
+        };
+        probe.src = url;
+    }
+
+    // ── ABOUT GALLERY ──────────────────────────────────────────────────────
+    // Renders the about section photo gallery from photo.count in 04-about.txt.
+    // Customer drops 1.JPG, 2.JPG ... in images/about/ and updates photo.count.
+    // No HTML editing ever needed.
+
+    function buildAboutGallery(cfg) {
+        var count = parseInt(cfg['about.photo.count']) || 0;
+        if (!count) return;
+
+        // Build photo URL list — allow override via photo.N, else auto-path
+        var photos = [];
+        for (var i = 1; i <= count; i++) {
+            photos.push(cfg['about.photo.' + i] || ('images/about/' + i + '.jpg'));
+        }
+
+        var BG = ['#EAE0D5', '#D9CFC4', '#DDD3C8', '#E5DDD5'];
+        var imgCls = 'w-full h-full object-cover';
+
+        // ── Mobile carousel ──────────────────────────────────────────────
+        var mob = document.getElementById('about-gallery-mobile');
+        if (mob) {
+            mob.innerHTML = photos.map(function (url, i) {
+                return '<div style="flex-shrink:0;width:82vw;aspect-ratio:4/3;background:' + BG[i % BG.length] +
+                    ';border-radius:2px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1);scroll-snap-align:start">' +
+                    '<img src="' + url + '" alt="Cinnamon Ridge view ' + (i + 1) + '"' +
+                    ' style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>';
+            }).join('') + '<div style="flex-shrink:0;width:12px"></div>';
+        }
+
+        // ── Desktop mosaic — CSS in <style> controls show/hide per breakpoint ─
+        var desk = document.getElementById('about-gallery-desktop');
+        if (!desk) return;
+        // CSS rule: display:none on mobile, display:grid on ≥1024px.
+        // JS only sets grid-template-columns/rows — never touches display.
+
+        // Helper: img tag with inline styles (Tailwind JIT won't compile JS-injected classes)
+        function mkImg(url, alt) {
+            return '<img src="' + url + '" alt="' + alt + '"' +
+                ' style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease"' +
+                ' onmouseover="this.style.transform=\'scale(1.04)\'"' +
+                ' onmouseout="this.style.transform=\'scale(1)\'"' +
+                ' loading="lazy">';
+        }
+
+        if (photos.length === 1) {
+            desk.style.gridTemplateColumns = '1fr';
+            desk.innerHTML =
+                '<div style="aspect-ratio:16/9;background:#EAE0D5;border-radius:2px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.12)">' +
+                mkImg(photos[0], 'Cinnamon Ridge') + '</div>';
+
+        } else if (photos.length === 2) {
+            desk.style.gridTemplateColumns = '1fr 1fr';
+            desk.innerHTML = photos.map(function (url, i) {
+                return '<div style="aspect-ratio:4/3;background:' + BG[i] + ';border-radius:2px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1)">' +
+                    mkImg(url, 'Cinnamon Ridge view ' + (i + 1)) + '</div>';
+            }).join('');
+
+        } else {
+            // 3+ photos: tall left (photo 1 spans 2 rows) + stacked right (photos 2 & 3)
+            desk.style.gridTemplateColumns = '3fr 2fr';
+            desk.style.gridTemplateRows = 'auto auto';
+            var html =
+                '<div style="grid-row:1/span 2;aspect-ratio:3/4;background:#EAE0D5;border-radius:2px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.14)">' +
+                mkImg(photos[0], 'Cinnamon Ridge main view') + '</div>';
+            for (var i = 1; i < Math.min(photos.length, 3); i++) {
+                html += '<div style="aspect-ratio:4/3;background:' + BG[i] + ';border-radius:2px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1)">' +
+                    mkImg(photos[i], 'Cinnamon Ridge view ' + (i + 1)) + '</div>';
+            }
+            desk.innerHTML = html;
+
+            // Extra photos (4+) below
+            var extras = document.getElementById('about-gallery-extras');
+            if (extras && photos.length > 3) {
+                var extra = photos.slice(3, 6);
+                extras.style.display = 'grid';
+                extras.style.gridTemplateColumns = 'repeat(' + extra.length + ', 1fr)';
+                extras.style.gap = '12px';
+                extras.innerHTML = extra.map(function (url, i) {
+                    return '<div style="aspect-ratio:4/3;background:' + BG[(i + 3) % BG.length] + ';border-radius:2px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1)">' +
+                        mkImg(url, 'Cinnamon Ridge extra view ' + (i + 4)) + '</div>';
+                }).join('');
+            }
+        }
+    }
+
+    // ── BOOKING MODAL SLIDES ───────────────────────────────────────────────
+    // Patches the Alpine booking modal with photos from images/booking/.
+    // Customer sets booking.photo.count in 09-booking-bar.txt.
+
+    function buildBookingSlides(cfg) {
+        var count = parseInt(cfg['booking.bar.photo.count']) || 0;
+        if (!count) return;
+
+        var slides = [];
+        for (var i = 1; i <= count; i++) {
+            slides.push(cfg['booking.bar.photo.' + i] || ('images/booking/' + i + '.jpg'));
+        }
+
+        function tryPatch(left) {
+            var el = document.getElementById('booking-modal-gallery');
+            if (!el) return;
+            var data = el._x_dataStack && el._x_dataStack[0];
+            if (!data) {
+                if (left > 0) setTimeout(function () { tryPatch(left - 1); }, 150);
+                return;
+            }
+            data.slides.splice(0, data.slides.length);
+            for (var i = 0; i < slides.length; i++) { data.slides.push(slides[i]); }
+            data.activeSlide = 0;
+            console.log('[CR] Booking modal: ' + slides.length + ' slides loaded.');
+        }
+        tryPatch(20);
+    }
+
     // ── PATCH ALPINE ROOMS ─────────────────────────────────────────────────
+
     // Replaces Alpine.js room data reactively after init.
     // Retries every 150 ms for up to 3 s in case Alpine isn't fully ready.
 
@@ -294,16 +476,21 @@
         tryPatch();
     }
 
-
     // ── BOOT ───────────────────────────────────────────────────────────────
 
     var configPromise = loadAll()
         .then(function (cfg) {
             window.SITE_CONFIG = cfg;
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', function () { applyText(cfg); });
+                document.addEventListener('DOMContentLoaded', function () {
+                    applyText(cfg);
+                    buildHeroImage(cfg);
+                    buildAboutGallery(cfg);
+                });
             } else {
                 applyText(cfg);
+                buildHeroImage(cfg);
+                buildAboutGallery(cfg);
             }
             return cfg;
         })
@@ -317,8 +504,12 @@
         configPromise.then(function (cfg) {
             if (!cfg) return;
             applyText(cfg);
+            buildHeroImage(cfg);
+            buildAboutGallery(cfg);
             patchAlpineRooms(cfg);
+            buildBookingSlides(cfg);
         });
     });
 
 })();
+

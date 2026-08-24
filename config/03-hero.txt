@@ -1,11 +1,21 @@
-﻿
-╔══════════════════════════════════════════════════════════════╗
-║   03  –  HERO SECTION                                       ║
-║          (The big full-screen opening image & text)         ║
-╚══════════════════════════════════════════════════════════════╝
-  Change the text after the  =  sign.
+﻿================================================
+  03 - HERO SECTION
+  (The big full-screen opening image and text)
+================================================
+  Change the text after the = sign.
   Save the file, then refresh your browser.
-══════════════════════════════════════════════════════════════
+================================================
+
+-- HERO BACKGROUND IMAGE --
+  Place your hero photo here:
+    images\hero\1.JPG
+
+  Then make sure the line below says:
+    image = images/hero/1.JPG
+
+image = images/hero/1.JPG
+
+-- HERO TEXT --
 
 # Small gold label above the main heading
 badge       = Boutique Luxury Sanctuary

@@ -1,11 +1,10 @@
-﻿
-╔══════════════════════════════════════════════════════════════╗
-║   04  –  ABOUT SECTION                                      ║
-║          (The "Our Story / The Property" section)           ║
-╚══════════════════════════════════════════════════════════════╝
-  Change the text after the  =  sign.
+﻿================================================
+  04 - ABOUT SECTION
+  (The "Our Story / The Property" section)
+================================================
+  Change the text after the = sign.
   Save the file, then refresh your browser.
-══════════════════════════════════════════════════════════════
+================================================
 
 # Small gold label above the heading
 label       = The Hideaway
@@ -16,11 +15,21 @@ heading     = Architectural Seclusion Amidst Natural Bedrock.
 # The paragraph body text
 description = Cinnamon Ridge frames the natural environment through raw micro-cement contours and high warm teak finishes. Tucked safely away on an elevated stone formation, the villa blends serene isolation with deep connectivity to the southern coast.
 
-# ── The two statistics shown below the paragraph ──────────
-# Stat 1
+-- Statistics shown below the paragraph --
+
 stat1.number = 4
 stat1.label  = Boutique Rooms
 
-# Stat 2
 stat2.number = 5 Mins
 stat2.label  = To Main Beach
+
+-- ABOUT SECTION PHOTOS --
+  Place your photos in this folder:
+    images\about\
+
+  Name them: 1.JPG  2.JPG  3.JPG  4.JPG ...
+
+  Then update the count below to match
+  how many photos you placed in that folder.
+
+photo.count = 4

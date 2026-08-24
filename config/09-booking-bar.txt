@@ -1,11 +1,10 @@
-﻿
-╔══════════════════════════════════════════════════════════════╗
-║   09  –  FLOATING BOOKING BAR                               ║
-║          (The dark bar fixed at the bottom of every page)   ║
-╚══════════════════════════════════════════════════════════════╝
-  Change the text after the  =  sign.
+﻿================================================
+  09 - FLOATING BOOKING BAR
+  (The dark bar fixed at the bottom of every page)
+================================================
+  Change the text after the = sign.
   Save the file, then refresh your browser.
-══════════════════════════════════════════════════════════════
+================================================
 
 # Small gold label (visible on desktop only)
 tagline     = Cinnamon Ridge Boutique Escape
@@ -15,3 +14,15 @@ description = Secure your calendar across premium booking channels
 
 # The clickable button text
 button      = Check Availability Now
+
+-- BOOKING POPUP PHOTOS --
+  These photos appear in the slideshow inside
+  the booking popup window.
+
+  Place photos in this folder:
+    images\booking\
+
+  Name them: 1.JPG  2.JPG  3.JPG ...
+  Then update the count below.
+
+photo.count = 3
