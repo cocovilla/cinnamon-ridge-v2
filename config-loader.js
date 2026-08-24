@@ -370,7 +370,35 @@
                     ';border-radius:2px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1);scroll-snap-align:start">' +
                     '<img src="' + url + '" alt="Cinnamon Ridge view ' + (i + 1) + '"' +
                     ' style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>';
-            }).join('') + '<div style="flex-shrink:0;width:12px"></div>';
+            }).join('') + '<div style="flex-shrink:0;width:12px"></div>'; // trailing gap
+
+            // Build indicator dots
+            var dotsContainer = document.getElementById('about-gallery-dots');
+            if (dotsContainer) {
+                dotsContainer.innerHTML = photos.map(function (url, i) {
+                    var cls = i === 0 ? 'w-4 h-1.5' : 'w-1.5 h-1.5 opacity-40';
+                    return '<div class="transition-all duration-300 rounded-full bg-[#CBA35C] ' + cls + '"></div>';
+                }).join('');
+
+                // Sync dots on scroll
+                mob.addEventListener('scroll', function () {
+                    if (!mob.children.length) return;
+                    // Width is 82vw + 12px gap
+                    var itemWidth = mob.children[0].offsetWidth + 12;
+                    var index = Math.round(mob.scrollLeft / itemWidth);
+                    // Bound the index
+                    index = Math.max(0, Math.min(index, photos.length - 1));
+
+                    var dots = dotsContainer.children;
+                    for (var j = 0; j < dots.length; j++) {
+                        if (j === index) {
+                            dots[j].className = 'transition-all duration-300 rounded-full bg-[#CBA35C] w-4 h-1.5';
+                        } else {
+                            dots[j].className = 'transition-all duration-300 rounded-full bg-[#CBA35C] w-1.5 h-1.5 opacity-40';
+                        }
+                    }
+                }, { passive: true });
+            }
         }
 
         // ── Desktop mosaic — CSS in <style> controls show/hide per breakpoint ─
