@@ -8,12 +8,12 @@
 
 -- HERO BACKGROUND IMAGE --
   Place your hero photo here:
-    images\hero\1.JPG
+    images\hero\1.webp
 
   Then make sure the line below says:
-    image = images/hero/1.JPG
+    image = images/hero/1.webp
 
-image = images/hero/1.JPG
+image = images/hero/1.webp
 
 -- HERO TEXT --
 

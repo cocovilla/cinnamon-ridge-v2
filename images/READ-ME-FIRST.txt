@@ -1,50 +1,50 @@
-
+﻿
 PUT YOUR WEBSITE IMAGES IN THIS FOLDER
 =======================================
 
 FOLDER STRUCTURE
-────────────────
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 images/
-│
-├── hero.JPG          ← The large opening background photo
-│                       (full-screen image behind the title)
-│
-├── pool.JPG          ← Photo of your pool
-│                       (shown in the Pool section)
-│
-├── about.JPG         ← Optional: a lifestyle photo for the About section
-│
-└── rooms/
-    ├── room-01/      ← Photos for Room 1 (Pool View)
-    │   ├── 1.JPG
-    │   ├── 2.JPG
-    │   └── 3.JPG     (add as many as you like)
-    │
-    ├── room-02/      ← Photos for Room 2 (Panorama Suite)
-    │   ├── 1.JPG
-    │   └── 2.JPG
-    │
-    ├── room-03/      ← Photos for Room 3 (Triple Panorama)
-    │   └── 1.JPG
-    │
-    └── room-04/      ← Photos for Room 4 (Terrace Room)
-        └── 1.JPG
+â”‚
+â”œâ”€â”€ hero.webp          â† The large opening background photo
+â”‚                       (full-screen image behind the title)
+â”‚
+â”œâ”€â”€ pool.webp          â† Photo of your pool
+â”‚                       (shown in the Pool section)
+â”‚
+â”œâ”€â”€ about.webp         â† Optional: a lifestyle photo for the About section
+â”‚
+â””â”€â”€ rooms/
+    â”œâ”€â”€ room-01/      â† Photos for Room 1 (Pool View)
+    â”‚   â”œâ”€â”€ 1.webp
+    â”‚   â”œâ”€â”€ 2.webp
+    â”‚   â””â”€â”€ 3.webp     (add as many as you like)
+    â”‚
+    â”œâ”€â”€ room-02/      â† Photos for Room 2 (Panorama Suite)
+    â”‚   â”œâ”€â”€ 1.webp
+    â”‚   â””â”€â”€ 2.webp
+    â”‚
+    â”œâ”€â”€ room-03/      â† Photos for Room 3 (Triple Panorama)
+    â”‚   â””â”€â”€ 1.webp
+    â”‚
+    â””â”€â”€ room-04/      â† Photos for Room 4 (Terrace Room)
+        â””â”€â”€ 1.webp
 
 
 RULES
-─────
-• Photo files MUST be named with numbers:  1.JPG  2.JPG  3.JPG  ...
-• Supported formats: JPG  JPEG  PNG  WebP
-• After adding photos, update the  image.count  number in site.config
+â”€â”€â”€â”€â”€
+â€¢ Photo files MUST be named with numbers:  1.webp  2.webp  3.webp  ...
+â€¢ Supported formats: JPG  JPEG  PNG  WebP
+â€¢ After adding photos, update the  image.count  number in site.config
   to match how many photos you uploaded.
 
 EXAMPLE
-───────
+â”€â”€â”€â”€â”€â”€â”€
 You upload 5 photos to  images/rooms/room-01/
-You name them:  1.JPG   2.JPG   3.JPG   4.JPG   5.JPG
+You name them:  1.webp   2.webp   3.webp   4.webp   5.webp
 
 Then in  site.config  you set:
     room.1.image.count = 5
 
-Refresh your browser — the photos appear automatically!
+Refresh your browser â€” the photos appear automatically!

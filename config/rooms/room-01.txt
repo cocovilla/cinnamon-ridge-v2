@@ -9,7 +9,7 @@
   Place your Room 1 photos in this folder:
     images\rooms\room-1\
 
-  Name them in order: 1.JPG  2.JPG  3.JPG ...
+  Name them in order: 1.webp  2.webp  3.webp ...
 
   Then update the number below to match how many
   photos you placed in that folder.

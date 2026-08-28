@@ -137,12 +137,12 @@
                 }
             }
 
-            // Images  →  images/rooms/room-01/1.jpg (or .JPG — both work)
+            // Images  →  images/rooms/room-01/1.webp (or .WEBP — both work)
             var count = parseInt(cfg[p + 'image.count']) || 0;
             var folder = 'images/rooms/room-' + i;
             var images = [];
             for (var j = 1; j <= count; j++) {
-                images.push(folder + '/' + j + '.jpg');
+                images.push(folder + '/' + j + '.webp');
             }
 
             rooms.push({
@@ -270,15 +270,14 @@
 
     (function attachImgFallback() {
         function swapCase(src) {
+            if (src.slice(-5).toLowerCase() === '.webp') {
+                return src.slice(-4) === 'webp' ? src.slice(0, -4) + 'WEBP' : src.slice(0, -4) + 'webp';
+            }
             if (src.slice(-4).toLowerCase() === '.jpg') {
-                return src.slice(-3) === 'jpg'
-                    ? src.slice(0, -3) + 'JPG'
-                    : src.slice(0, -3) + 'jpg';
+                return src.slice(-3) === 'jpg' ? src.slice(0, -3) + 'JPG' : src.slice(0, -3) + 'jpg';
             }
             if (src.slice(-5).toLowerCase() === '.jpeg') {
-                return src.slice(-4) === 'jpeg'
-                    ? src.slice(0, -4) + 'JPEG'
-                    : src.slice(0, -4) + 'jpeg';
+                return src.slice(-4) === 'jpeg' ? src.slice(0, -4) + 'JPEG' : src.slice(0, -4) + 'jpeg';
             }
             return null;
         }
@@ -329,6 +328,8 @@
             el.style.backgroundImage = "url('" + src + "')";
         }
         function swapExt(src) {
+            if (src.slice(-5).toLowerCase() === '.webp')
+                return src.slice(-4) === 'webp' ? src.slice(0, -4) + 'WEBP' : src.slice(0, -4) + 'webp';
             if (src.slice(-4).toLowerCase() === '.jpg')
                 return src.slice(-3) === 'jpg' ? src.slice(0, -3) + 'JPG' : src.slice(0, -3) + 'jpg';
             if (src.slice(-5).toLowerCase() === '.jpeg')
@@ -356,7 +357,7 @@
         // Build photo URL list — allow override via photo.N, else auto-path
         var photos = [];
         for (var i = 1; i <= count; i++) {
-            photos.push(cfg['about.photo.' + i] || ('images/about/' + i + '.jpg'));
+            photos.push(cfg['about.photo.' + i] || ('images/about/' + i + '.webp'));
         }
 
         var BG = ['#EAE0D5', '#D9CFC4', '#DDD3C8', '#E5DDD5'];
@@ -466,7 +467,7 @@
 
         var slides = [];
         for (var i = 1; i <= count; i++) {
-            slides.push(cfg['booking.bar.photo.' + i] || ('images/booking/' + i + '.jpg'));
+            slides.push(cfg['booking.bar.photo.' + i] || ('images/booking/' + i + '.webp'));
         }
 
         function tryPatch(left) {
